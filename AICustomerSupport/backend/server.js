@@ -6,16 +6,14 @@ import mongoose from "mongoose";
 import cors from "cors";
 import chatRoutes from "./routes/chatRoutes.js";
 
-// require('dotenv').config();
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const cors = require('cors');
-// const chatRoutes = require('./routes/chatRoutes');
+// Log environment variables to verify they are loaded correctly
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api', chatRoutes);
+
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

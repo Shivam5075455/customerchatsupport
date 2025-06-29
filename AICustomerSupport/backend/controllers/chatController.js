@@ -1,9 +1,7 @@
 
 import Conversation from "../models/Conversation.js";
-import { getGPTResponse } from "../utils/openaiClient.js";
+import { getGPTResponse } from "../utils/openaiClient_v2.js";
 
-// const Conversation = require('../models/Conversation');
-// const { getGPTResponse } = require('../utils/openaiClient');
 
 export const sendMessage = async (req, res) => {
   const { userId, message } = req.body;

@@ -52,7 +52,7 @@ const deployment = AZURE_OPENAI_DEPLOYMENT;
 
 // const result = await client.chat.completions.create({ messages, model: '', max_tokens: 100 });
 
-export const getGPTResponse = async (messages) => {
+const getGPTResponse = async (messages) => {
   try {
     const response = await client.chat.completions.create({
       messages,
@@ -68,4 +68,7 @@ export const getGPTResponse = async (messages) => {
   }
 }
 
-})();
+})
+
+// Export the function outside the IIFE
+export { getGPTResponse };

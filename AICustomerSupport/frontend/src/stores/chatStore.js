@@ -30,6 +30,16 @@ class ChatStore {
       });
     }
   }
+
+  // fetch the chat history for a user
+async fetchHistory(userId) {
+    try {
+      const res = await axios.get(`http://localhost:5000/api/history/${userId}`);
+      this.messages = res.data.messages || [];
+    } catch (err) {
+      console.error("Failed to fetch chat history:", err);
+    }
+  }
 }
 
 const chatStore = new ChatStore();

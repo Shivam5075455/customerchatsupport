@@ -17,16 +17,20 @@ const ChatWindow = observer(() => {
   };
 
   return (
-    <div className="chat-container">
-      <div className="chat-box">
-        {chatStore.messages.map((msg, idx) => (
-          <ChatBubble key={idx} {...msg} />
-        ))}
-        {chatStore.loading && <div className="typing">Agent is typing...</div>}
-        <div ref={bottomRef} />
-      </div>
+    <>
+      <div className="chat-container">
+        <div className="chat-box">
+          {chatStore.messages.map((msg, idx) => (
+            <ChatBubble key={idx} {...msg} />
+          ))}
+          {chatStore.loading && (
+            <div className="typing">Agent is typing...</div>
+          )}
+          <div ref={bottomRef} />
+        </div>
       <ChatInput onSend={handleSend} />
-    </div>
+      </div>
+    </>
   );
 });
 
